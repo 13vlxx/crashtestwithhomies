@@ -1,5 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>💥 CHAOS REALM 💥</title>
+    <style>
+        body {
+            background: radial-gradient(circle, black, purple, red, orange, yellow);
+            color: white;
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            overflow: hidden;
+        }
+        h1 {
+            font-size: 5em;
+            color: magenta;
+            text-shadow: 0 0 30px cyan, 0 0 40px lime, 0 0 50px red;
+            animation: flicker 0.1s infinite;
+            transform: rotate(-5deg);
+        }
+        @keyframes flicker {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.2; }
+        }
+        .button {
+            padding: 20px 40px;
+            font-size: 1.5em;
+            background: linear-gradient(90deg, red, yellow, green, blue, purple);
+            border: none;
+            border-radius: 15px;
+            color: white;
+            text-transform: uppercase;
+            animation: rainbow 2s infinite, shake 0.5s infinite;
+            cursor: pointer;
+        }
+        @keyframes rainbow {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        @keyframes shake {
+            0%, 100% { transform: translate(0, 0); }
+            25% { transform: translate(5px, -5px); }
+            75% { transform: translate(-5px, 5px); }
+        }
+        .chaos-item {
+            position: absolute;
+            animation: fly 3s infinite ease-in-out;
+        }
+        @keyframes fly {
+            0% { transform: translate(-50px, -50px) rotate(0deg); }
+            50% { transform: translate(100vw, 100vh) rotate(360deg); }
+            100% { transform: translate(-50px, -50px) rotate(720deg); }
+        }
+        .glitch {
+            animation: glitch-effect 0.3s infinite;
+        }
+        @keyframes glitch-effect {
+            0% { transform: translate(0, 0); }
+            25% { transform: translate(10px, -10px); }
+            50% { transform: translate(-10px, 10px); }
+            75% { transform: translate(5px, -5px); }
+            100% { transform: translate(0, 0); }
+=======
 
 <head>
     <meta charset="UTF-8" />
@@ -73,6 +135,33 @@
             box-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
             animation: pulse 1s infinite;
         }
+
+  </head>
+  <body>
+    <h1>💀 WTF CHAOS 2.0 💀</h1>
+    <p>Now with EXTRA insanity.</p>
+    <button class="button" onclick="summonChaos()">
+      Summon Infinite Chaos
+    </button>
+    <button class="button" onclick="detonate()">Atomic Detonation 💣</button>
+    <button class="button" onclick="partyHard()">Eternal WTF Party 🔥</button>
+    <button class="button" onclick="partyHard()">Eternal Party 🔥</button>
+    <button class="button" onclick="summonRickRoll()">
+      Summon Rick Roll 🎵
+    </button>
+    <button class="button" onclick="blackHole()">Black Hole 🌌</button>
+
+    <div id="chaos-container"></div>
+    <div id="black-hole"></div>
+    <audio
+      id="explosion-sound"
+      src="https://www.soundjay.com/button/sounds/button-3.mp3"
+    ></audio>
+    <audio
+      id="party-music"
+      src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"
+      loop
+    ></audio>
 
         @keyframes pulse {
             0% {
