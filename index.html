@@ -61,7 +61,135 @@
             50% { transform: translate(-10px, 10px); }
             75% { transform: translate(5px, -5px); }
             100% { transform: translate(0, 0); }
+=======
+
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>🔥 The Ultimate WTF Experience x1000 🔥</title>
+    <style>
+      body {
+        background: radial-gradient(circle, #1a1a1a, black);
+        color: white;
+
+        font-family: "Comic Sans MS", cursive, sans-serif;
+
+        text-align: center;
+        overflow: hidden;
+        animation: hueRotate 10s infinite linear;
+      }
+
+      @keyframes hueRotate {
+        0% {
+          filter: hue-rotate(0deg);
         }
+        100% {
+          filter: hue-rotate(360deg);
+        }
+      }
+
+      h1 {
+        font-size: 6em;
+        color: gold;
+        text-shadow: 0 0 20px cyan, 0 0 40px magenta, 0 0 60px red;
+        animation: glitch 0.5s infinite, textZoom 5s infinite alternate;
+      }
+
+      @keyframes glitch {
+        0%,
+        100% {
+          transform: translate(0, 0);
+        }
+        25% {
+          transform: translate(2px, -2px);
+        }
+        50% {
+          transform: translate(-2px, 2px);
+        }
+        75% {
+          transform: translate(1px, -1px);
+        }
+      }
+
+      @keyframes textZoom {
+        0% {
+          transform: scale(1);
+        }
+        100% {
+          transform: scale(1.5);
+        }
+      }
+
+      .button {
+        padding: 20px 40px;
+        margin: 20px;
+        font-size: 20px;
+        background: linear-gradient(90deg, red, yellow, green, blue, purple);
+        color: black;
+        border: 5px dashed white;
+        border-radius: 50%;
+        cursor: pointer;
+        animation: spinButton 3s infinite linear;
+        text-transform: uppercase;
+      }
+
+      @keyframes spinButton {
+        from {
+          transform: rotate(0deg);
+        }
+        to {
+          transform: rotate(360deg);
+        }
+      }
+
+      .chaos-box {
+        position: absolute;
+        font-size: 2em;
+        animation: flyAround 4s infinite;
+      }
+
+      @keyframes flyAround {
+        0% {
+          transform: translate(0, 0) rotate(0);
+        }
+        25% {
+          transform: translate(50px, -100px) rotate(90deg);
+        }
+        50% {
+          transform: translate(-200px, 200px) rotate(180deg);
+        }
+        75% {
+          transform: translate(100px, -50px) rotate(270deg);
+        }
+        100% {
+          transform: translate(0, 0) rotate(360deg);
+        }
+      }
+
+      @keyframes explode {
+        0% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(3);
+        }
+        100% {
+          transform: scale(0);
+        }
+      }
+
+      #black-hole {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        width: 50px;
+        height: 50px;
+        background: black;
+        border-radius: 50%;
+        transform: translate(-50%, -50%);
+        box-shadow: 0 0 50px 20px black;
+        display: none;
+      }
     </style>
 </head>
 <body>
@@ -116,4 +244,134 @@
     }
 </script>
 </body>
+=======
+  </head>
+  <body>
+    <h1>💀 WTF CHAOS 2.0 💀</h1>
+    <p>Now with EXTRA insanity.</p>
+    <button class="button" onclick="summonChaos()">
+      Summon Infinite Chaos
+    </button>
+    <button class="button" onclick="detonate()">Atomic Detonation 💣</button>
+    <button class="button" onclick="partyHard()">Eternal WTF Party 🔥</button>
+    <button class="button" onclick="partyHard()">Eternal Party 🔥</button>
+    <button class="button" onclick="summonRickRoll()">
+      Summon Rick Roll 🎵
+    </button>
+    <button class="button" onclick="blackHole()">Black Hole 🌌</button>
+
+    <div id="chaos-container"></div>
+    <div id="black-hole"></div>
+    <audio
+      id="explosion-sound"
+      src="https://www.soundjay.com/button/sounds/button-3.mp3"
+    ></audio>
+    <audio
+      id="party-music"
+      src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"
+      loop
+    ></audio>
+
+    <script>
+      function summonChaos() {
+        for (let i = 0; i < 100; i++) {
+          const chaosBox = document.createElement('div');
+          chaosBox.className = 'chaos-box';
+          chaosBox.textContent = ['🔥', '💀', '👾', '⚡', '💣'][
+            Math.floor(Math.random() * 5)
+          ];
+          chaosBox.style.top = Math.random() * window.innerHeight + 'px';
+          chaosBox.style.left = Math.random() * window.innerWidth + 'px';
+          chaosBox.style.fontSize = Math.random() * 100 + 20 + 'px';
+          chaosBox.style.color = ['lime', 'red', 'yellow', 'magenta', 'cyan'][
+            Math.floor(Math.random() * 5)
+          ];
+          document.getElementById('chaos-container').appendChild(chaosBox);
+
+          chaosBox.addEventListener('animationend', () => {
+            chaosBox.remove();
+          });
+        }
+      }
+
+      function detonate() {
+        const explosionSound = document.getElementById('explosion-sound');
+        explosionSound.play();
+
+        const chaosBoxes = document.querySelectorAll('.chaos-box');
+        chaosBoxes.forEach((box) => {
+          box.style.animation = 'explode 1s forwards';
+        });
+
+        setTimeout(() => {
+          document.body.style.background = 'red';
+          document.body.style.transition = 'background 0.5s';
+        }, 300);
+
+        setTimeout(() => {
+          document.body.style.background = 'black';
+        }, 800);
+
+        alert('💥 BOOM 💥 CHAOS LEVEL: MAXIMUM!');
+      }
+
+      function partyHard() {
+        const music = document.getElementById('party-music');
+        if (music.paused) {
+          music.play();
+
+          music.playbackRate = 3; // Vitesse WTF
+          music.addEventListener('timeupdate', () => {
+            // Ajoute des perturbations aléatoires
+            if (Math.random() < 0.1) {
+              music.playbackRate = Math.random() * 2 + 2; // Entre 2x et 4x
+            }
+          });
+          document.body.style.animation = 'hueRotate 5s infinite';
+          setInterval(() => {
+            summonChaos();
+            document.body.style.backgroundColor =
+              '#' + Math.floor(Math.random() * 16777215).toString(16);
+          }, 0);
+        } else {
+          music.pause();
+          alert('😵 Party Over. Reality Restored.');
+          document.body.style.animation = 'none';
+        }
+
+        function summonRickRoll() {
+          for (let i = 0; i < 5; i++) {
+            const rick = document.createElement('img');
+            rick.src =
+              'https://alexsoyes.com/wp-content/uploads/2020/06/programmation-html-wordpress-730x912.jpg';
+            rick.style.position = 'absolute';
+            rick.style.top = Math.random() * window.innerHeight + 'px';
+            rick.style.left = Math.random() * window.innerWidth + 'px';
+            rick.style.width = Math.random() * 200 + 50 + 'px';
+            document.body.appendChild(rick);
+          }
+        }
+
+        function blackHole() {
+          const blackHole = document.getElementById('black-hole');
+          blackHole.style.display = 'block';
+          let size = 50;
+
+          const interval = setInterval(() => {
+            size += 20;
+            blackHole.style.width = size + 'px';
+            blackHole.style.height = size + 'px';
+            blackHole.style.boxShadow = `0 0 ${size}px ${size / 2}px black`;
+
+            if (size > window.innerWidth) {
+              clearInterval(interval);
+              alert('🌌 The world has been swallowed by the black hole!');
+              document.body.innerHTML =
+                "<h1 style='color: white;'>Game Over 💀</h1>";
+            }
+          }, 100);
+        }
+      }
+    </script>
+  </body>
 </html>
