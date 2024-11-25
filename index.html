@@ -5,16 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>🔥 The Ultimate WTF Experience 🔥</title>
     <style>
-        body {
-            background: radial-gradient(circle, #1a1a1a, black);
-            color: white;
-            font-family: 'Courier New', monospace;
-            text-align: center;
-            overflow: hidden;
+      body {
+        background: radial-gradient(circle, #1a1a1a, black);
+        color: white;
+        font-family: "Comic Sans MS", cursive, sans-serif;
+        text-align: center;
+        overflow: hidden;
+        animation: hueRotate 10s infinite linear;
+      }
+
+      @keyframes hueRotate {
+        0% {
+          filter: hue-rotate(0deg);
         }
         h1 {
-            font-size: 2em;
-            color: black;
+            font-size: 4em;
+            color: red;
             text-shadow: 0 0 20px cyan, 0 0 30px magenta;
             animation: glitch 1s infinite;
         }
@@ -26,58 +32,122 @@
                 text-shadow: 2px -2px 5px red, -2px 2px 5px blue;
             }
         }
-        .button {
-            padding: 15px 30px;
-            margin: 20px;
-            font-size: 20px;
-            background: linear-gradient(45deg, red, yellow, blue);
-            color: white;
-            border: 3px solid white;
-            cursor: pointer;
-            animation: pulse 2s infinite;
-            text-transform: uppercase;
+      }
+
+      @keyframes textZoom {
+        0% {
+          transform: scale(1);
         }
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.1); }
+        100% {
+          transform: scale(1.5);
         }
-        .chaos-box {
-            position: absolute;
-            font-size: 2em;
-            color: lime;
-            animation: spin 4s infinite linear;
+      }
+
+      .button {
+        padding: 20px 40px;
+        margin: 20px;
+        font-size: 20px;
+        background: linear-gradient(90deg, red, yellow, green, blue, purple);
+        color: black;
+        border: 5px dashed white;
+        border-radius: 50%;
+        cursor: pointer;
+        animation: spinButton 3s infinite linear;
+        text-transform: uppercase;
+      }
+
+      @keyframes spinButton {
+        from {
+          transform: rotate(0deg);
         }
-        @keyframes spin {
-            from { transform: rotate(0); }
-            to { transform: rotate(360deg); }
+        to {
+          transform: rotate(360deg);
+        }
+      }
+
+      .chaos-box {
+        position: absolute;
+        font-size: 2em;
+        animation: flyAround 4s infinite;
+      }
+
+      @keyframes flyAround {
+        0% {
+          transform: translate(0, 0) rotate(0);
+        }
+        25% {
+          transform: translate(50px, -100px) rotate(90deg);
+        }
+        50% {
+          transform: translate(-200px, 200px) rotate(180deg);
+        }
+        75% {
+          transform: translate(100px, -50px) rotate(270deg);
+        }
+        100% {
+          transform: translate(0, 0) rotate(360deg);
+        }
+      }
+
+      @keyframes explode {
+        0% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(3);
+        }
+        100% {
+          transform: scale(0);
+        }
+
+        #black-hole {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            width: 50px;
+            height: 50px;
+            background: black;
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            box-shadow: 0 0 50px 20px black;
+            display: none;
         }
     </style>
 </head>
 <body>
-    <h1>💀 Welcome to Hell 💀</h1>
-    <p>Click at your own risk...</p>
-    <button class="button" onclick="summonChaos()">Unleash Mayhem</button>
-    <button class="button" onclick="detonate()">Kaboom! 💣</button>
-    <button class="button" onclick="partyHard()">Rave On 🔥</button>
-    <button class="button" onclick="partyHard()">PARTY HARD 🔥</button>
+    <h1>💀 WTF CHAOS 2.0 💀</h1>
+    <p>Now with EXTRA insanity.</p>
+ <button class="button" onclick="summonChaos()">Summon Infinite Chaos</button>
+    <button class="button" onclick="detonate()">Atomic Detonation 💣</button>
+    <button class="button" onclick="partyHard()">Eternal WTF Party 🔥</button>
+    <button class="button" onclick="partyHard()">Eternal Party 🔥</button>
+    <button class="button" onclick="summonRickRoll()">Summon Rick Roll 🎵</button>
+    <button class="button" onclick="blackHole()">Black Hole 🌌</button>
 
     <div id="chaos-container"></div>
+    <div id="black-hole"></div>
     <audio id="explosion-sound" src="https://www.soundjay.com/button/sounds/button-3.mp3"></audio>
     <audio id="party-music" src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" loop></audio>
 
     <script>
-        function summonChaos() {
-            for (let i = 0; i < 10; i++) {
-                const chaosBox = document.createElement('div');
-                chaosBox.className = 'chaos-box';
-                chaosBox.textContent = '🔥';
-                chaosBox.style.top = Math.random() * window.innerHeight + 'px';
-                chaosBox.style.left = Math.random() * window.innerWidth + 'px';
-                chaosBox.style.fontSize = Math.random() * 100 + 20 + 'px';
-                chaosBox.style.color = ['lime', 'red', 'yellow', 'magenta', 'cyan'][Math.floor(Math.random() * 5)];
-                document.getElementById('chaos-container').appendChild(chaosBox);
-            }
+      function summonChaos() {
+        for (let i = 0; i < 100; i++) {
+          const chaosBox = document.createElement("div");
+          chaosBox.className = "chaos-box";
+          chaosBox.textContent = ["🔥", "💀", "👾", "⚡", "💣"][Math.floor(Math.random() * 5)];
+          chaosBox.style.top = Math.random() * window.innerHeight + "px";
+          chaosBox.style.left = Math.random() * window.innerWidth + "px";
+          chaosBox.style.fontSize = Math.random() * 100 + 20 + "px";
+          chaosBox.style.color = ["lime", "red", "yellow", "magenta", "cyan"][
+            Math.floor(Math.random() * 5)
+          ];
+          document.getElementById("chaos-container").appendChild(chaosBox);
+
+          chaosBox.addEventListener("animationend", () => {
+            chaosBox.remove();
+          });
         }
+      }
 
         function detonate() {
             const explosionSound = document.getElementById('explosion-sound');
@@ -109,5 +179,5 @@
             }
         }
     </script>
-</body>
+  </body>
 </html>
