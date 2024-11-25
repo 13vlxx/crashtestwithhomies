@@ -63,188 +63,79 @@
             100% { transform: translate(0, 0); }
 =======
 
-  <head>
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>🔥 The Ultimate WTF Experience x1000 🔥</title>
+    <title>🚀 Ultimate WTF Page of Madness 🚀</title>
     <style>
-      body {
-        background: radial-gradient(circle, #1a1a1a, black);
-        color: white;
+        body {
+            margin: 0;
+            padding: 0;
+            background: black;
+            color: white;
+            font-family: "Comic Sans MS", sans-serif;
+            overflow: hidden;
+            text-align: center;
+            position: relative;
+        }
 
-        font-family: "Comic Sans MS", cursive, sans-serif;
+        h1 {
+            font-size: 5em;
+            text-transform: uppercase;
+            color: #ff00ff;
+            text-shadow: 0 0 10px red, 0 0 20px orange, 0 0 30px yellow, 0 0 40px green;
+            animation: glitch 1s infinite linear;
+            user-select: none;
+        }
 
-        text-align: center;
-        overflow: hidden;
-        animation: hueRotate 10s infinite linear;
-      }
+        @keyframes glitch {
+            0% {
+                text-shadow: 0 0 10px red, 0 0 20px orange, 0 0 30px yellow, 0 0 40px green;
+                transform: translate(0);
+            }
 
-      @keyframes hueRotate {
-        0% {
-          filter: hue-rotate(0deg);
-        }
-        100% {
-          filter: hue-rotate(360deg);
-        }
-      }
+            50% {
+                text-shadow: 0 0 5px blue, 0 0 15px purple, 0 0 25px white;
+                transform: translate(5px, 5px);
+            }
 
-      h1 {
-        font-size: 6em;
-        color: gold;
-        text-shadow: 0 0 20px cyan, 0 0 40px magenta, 0 0 60px red;
-        animation: glitch 0.5s infinite, textZoom 5s infinite alternate;
-      }
+            100% {
+                text-shadow: 0 0 10px cyan, 0 0 20px pink, 0 0 30px magenta;
+                transform: translate(-5px, -5px);
+            }
+        }
 
-      @keyframes glitch {
-        0%,
-        100% {
-          transform: translate(0, 0);
+        .random-shapes {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 1;
+            pointer-events: none;
+            animation: spin 2s infinite linear;
         }
-        25% {
-          transform: translate(2px, -2px);
-        }
-        50% {
-          transform: translate(-2px, 2px);
-        }
-        75% {
-          transform: translate(1px, -1px);
-        }
-      }
 
-      @keyframes textZoom {
-        0% {
-          transform: scale(1);
-        }
-        100% {
-          transform: scale(1.5);
-        }
-      }
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg) translate(-50%, -50%);
+            }
 
-      .button {
-        padding: 20px 40px;
-        margin: 20px;
-        font-size: 20px;
-        background: linear-gradient(90deg, red, yellow, green, blue, purple);
-        color: black;
-        border: 5px dashed white;
-        border-radius: 50%;
-        cursor: pointer;
-        animation: spinButton 3s infinite linear;
-        text-transform: uppercase;
-      }
+            100% {
+                transform: rotate(360deg) translate(-50%, -50%);
+            }
+        }
 
-      @keyframes spinButton {
-        from {
-          transform: rotate(0deg);
+        .crazy-circle {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background-color: rgba(255, 0, 255, 0.5);
+            position: absolute;
+            pointer-events: none;
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
+            animation: pulse 1s infinite;
         }
-        to {
-          transform: rotate(360deg);
-        }
-      }
 
-      .chaos-box {
-        position: absolute;
-        font-size: 2em;
-        animation: flyAround 4s infinite;
-      }
-
-      @keyframes flyAround {
-        0% {
-          transform: translate(0, 0) rotate(0);
-        }
-        25% {
-          transform: translate(50px, -100px) rotate(90deg);
-        }
-        50% {
-          transform: translate(-200px, 200px) rotate(180deg);
-        }
-        75% {
-          transform: translate(100px, -50px) rotate(270deg);
-        }
-        100% {
-          transform: translate(0, 0) rotate(360deg);
-        }
-      }
-
-      @keyframes explode {
-        0% {
-          transform: scale(1);
-        }
-        50% {
-          transform: scale(3);
-        }
-        100% {
-          transform: scale(0);
-        }
-      }
-
-      #black-hole {
-        position: fixed;
-        top: 50%;
-        left: 50%;
-        width: 50px;
-        height: 50px;
-        background: black;
-        border-radius: 50%;
-        transform: translate(-50%, -50%);
-        box-shadow: 0 0 50px 20px black;
-        display: none;
-      }
-    </style>
-</head>
-<body>
-<h1 class="glitch">🎉 CHAOS HAS ARRIVED 🎉</h1>
-<p>Brace yourself... or don't. 🤪</p>
-<button class="button" onclick="unleashMadness()">UNLEASH MADNESS</button>
-<button class="button" onclick="explode()">🔥 EXPLODE EVERYTHING 🔥</button>
-<button class="button" onclick="danceParty()">🕺 LET'S DANCE 💃</button>
-<div id="chaos-container"></div>
-
-<audio id="madness-sound" src="https://www.soundjay.com/button/sounds/button-6.mp3"></audio>
-<audio id="explosion-sound" src="https://www.soundjay.com/button/sounds/button-5.mp3"></audio>
-<audio id="party-music" src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3" loop></audio>
-
-<script>
-    function randomEmoji() {
-        const emojis = ['🔥', '💀', '🤡', '🦄', '⚡', '🌈', '😱', '👾', '🍕', '🚀'];
-        return emojis[Math.floor(Math.random() * emojis.length)];
-    }
-
-    function unleashMadness() {
-        for (let i = 0; i < 50; i++) {
-            const chaosItem = document.createElement('div');
-            chaosItem.className = 'chaos-item';
-            chaosItem.textContent = randomEmoji();
-            chaosItem.style.top = Math.random() * 100 + 'vh';
-            chaosItem.style.left = Math.random() * 100 + 'vw';
-            chaosItem.style.fontSize = Math.random() * 50 + 10 + 'px';
-            chaosItem.style.color = `hsl(${Math.random() * 360}, 100%, 50%)`;
-            document.body.appendChild(chaosItem);
-        }
-        document.getElementById('madness-sound').play();
-    }
-
-    function explode() {
-        const sound = document.getElementById('explosion-sound');
-        sound.play();
-        document.body.innerHTML = "<h1 style='color: red; font-size: 10em;'>💥 BOOM 💥</h1>";
-        setTimeout(() => location.reload(), 3000);
-    }
-
-    function danceParty() {
-        const music = document.getElementById('party-music');
-        if (music.paused) {
-            music.play();
-            setInterval(unleashMadness, 500);
-            document.body.style.animation = 'rainbow 1s infinite';
-        } else {
-            music.pause();
-            alert("💔 No more dancing...");
-        }
-    }
-</script>
-</body>
-=======
   </head>
   <body>
     <h1>💀 WTF CHAOS 2.0 💀</h1>
@@ -272,106 +163,134 @@
       loop
     ></audio>
 
-    <script>
-      function summonChaos() {
-        for (let i = 0; i < 100; i++) {
-          const chaosBox = document.createElement('div');
-          chaosBox.className = 'chaos-box';
-          chaosBox.textContent = ['🔥', '💀', '👾', '⚡', '💣'][
-            Math.floor(Math.random() * 5)
-          ];
-          chaosBox.style.top = Math.random() * window.innerHeight + 'px';
-          chaosBox.style.left = Math.random() * window.innerWidth + 'px';
-          chaosBox.style.fontSize = Math.random() * 100 + 20 + 'px';
-          chaosBox.style.color = ['lime', 'red', 'yellow', 'magenta', 'cyan'][
-            Math.floor(Math.random() * 5)
-          ];
-          document.getElementById('chaos-container').appendChild(chaosBox);
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+                opacity: 0.7;
+            }
 
-          chaosBox.addEventListener('animationend', () => {
-            chaosBox.remove();
-          });
+            50% {
+                transform: scale(1.5);
+                opacity: 1;
+            }
+
+            100% {
+                transform: scale(1);
+                opacity: 0.7;
+            }
         }
-      }
 
-      function detonate() {
-        const explosionSound = document.getElementById('explosion-sound');
-        explosionSound.play();
+        .crazy-text {
+            position: absolute;
+            font-size: 3em;
+            color: #00ff00;
+            animation: moveAround 3s infinite linear;
+            user-select: none;
+        }
 
-        const chaosBoxes = document.querySelectorAll('.chaos-box');
-        chaosBoxes.forEach((box) => {
-          box.style.animation = 'explode 1s forwards';
+        @keyframes moveAround {
+            0% {
+                transform: translateX(0) translateY(0);
+            }
+
+            25% {
+                transform: translateX(300px) translateY(100px);
+            }
+
+            50% {
+                transform: translateX(-300px) translateY(-150px);
+            }
+
+            75% {
+                transform: translateX(200px) translateY(-200px);
+            }
+
+            100% {
+                transform: translateX(0) translateY(0);
+            }
+        }
+
+        audio {
+            position: absolute;
+            top: -9999px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>💥 WTF Chaos 💥</h1>
+    <div id="crazy-elements"></div>
+
+    <audio id="explosion-sound" src="https://www.soundjay.com/button/sounds/button-3.mp3" preload="auto"></audio>
+    <audio id="party-sound" src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" preload="auto" loop></audio>
+    <audio id="weird-sound" src="https://www.soundjay.com/button/sounds/button-6.mp3" preload="auto"></audio>
+
+    <script>
+        // Audio insane random sounds
+        function playRandomSound() {
+            const sounds = ['explosion-sound', 'party-sound', 'weird-sound'];
+            const sound = document.getElementById(sounds[Math.floor(Math.random() * sounds.length)]);
+            sound.play();
+        }
+
+        // Create insane circle and text
+        function createCrazyElements() {
+            const crazyCircle = document.createElement('div');
+            crazyCircle.className = 'crazy-circle';
+            crazyCircle.style.top = `${Math.random() * window.innerHeight}px`;
+            crazyCircle.style.left = `${Math.random() * window.innerWidth}px`;
+            document.body.appendChild(crazyCircle);
+
+            const crazyText = document.createElement('div');
+            crazyText.className = 'crazy-text';
+            crazyText.textContent = 'WTF?!';
+            crazyText.style.top = `${Math.random() * window.innerHeight}px`;
+            crazyText.style.left = `${Math.random() * window.innerWidth}px`;
+            document.body.appendChild(crazyText);
+
+            setTimeout(() => {
+                crazyCircle.remove();
+                crazyText.remove();
+            }, 3000);
+        }
+
+        // Random colors for the page background
+        function changeBackgroundColor() {
+            document.body.style.backgroundColor = `rgb(${Math.random() * 255}, ${Math.random() * 255}, ${Math.random() * 255})`;
+        }
+
+        // Trigger chaos on mouse movement
+        document.body.addEventListener('mousemove', function (event) {
+            if (Math.random() < 0.2) {
+                createCrazyElements(); // Create circles and texts
+                playRandomSound(); // Play a random sound
+                changeBackgroundColor(); // Change background color randomly
+            }
         });
 
-        setTimeout(() => {
-          document.body.style.background = 'red';
-          document.body.style.transition = 'background 0.5s';
-        }, 300);
+        // Trigger chaos when clicking
+        document.body.addEventListener('click', function () {
+            createCrazyElements(); // Create circles and texts
+            playRandomSound(); // Play a random sound
+            changeBackgroundColor(); // Change background color randomly
+        });
 
-        setTimeout(() => {
-          document.body.style.background = 'black';
-        }, 800);
+        // Trigger random madness when mouse enters or leaves the page
+        document.body.addEventListener('mouseenter', function () {
+            createCrazyElements(); // Create circles and texts
+        });
 
-        alert('💥 BOOM 💥 CHAOS LEVEL: MAXIMUM!');
-      }
+        document.body.addEventListener('mouseleave', function () {
+            createCrazyElements(); // Create circles and texts
+            playRandomSound(); // Play a random sound
+        });
 
-      function partyHard() {
-        const music = document.getElementById('party-music');
-        if (music.paused) {
-          music.play();
-
-          music.playbackRate = 3; // Vitesse WTF
-          music.addEventListener('timeupdate', () => {
-            // Ajoute des perturbations aléatoires
-            if (Math.random() < 0.1) {
-              music.playbackRate = Math.random() * 2 + 2; // Entre 2x et 4x
-            }
-          });
-          document.body.style.animation = 'hueRotate 5s infinite';
-          setInterval(() => {
-            summonChaos();
-            document.body.style.backgroundColor =
-              '#' + Math.floor(Math.random() * 16777215).toString(16);
-          }, 0);
-        } else {
-          music.pause();
-          alert('😵 Party Over. Reality Restored.');
-          document.body.style.animation = 'none';
-        }
-
-        function summonRickRoll() {
-          for (let i = 0; i < 5; i++) {
-            const rick = document.createElement('img');
-            rick.src =
-              'https://alexsoyes.com/wp-content/uploads/2020/06/programmation-html-wordpress-730x912.jpg';
-            rick.style.position = 'absolute';
-            rick.style.top = Math.random() * window.innerHeight + 'px';
-            rick.style.left = Math.random() * window.innerWidth + 'px';
-            rick.style.width = Math.random() * 200 + 50 + 'px';
-            document.body.appendChild(rick);
-          }
-        }
-
-        function blackHole() {
-          const blackHole = document.getElementById('black-hole');
-          blackHole.style.display = 'block';
-          let size = 50;
-
-          const interval = setInterval(() => {
-            size += 20;
-            blackHole.style.width = size + 'px';
-            blackHole.style.height = size + 'px';
-            blackHole.style.boxShadow = `0 0 ${size}px ${size / 2}px black`;
-
-            if (size > window.innerWidth) {
-              clearInterval(interval);
-              alert('🌌 The world has been swallowed by the black hole!');
-              document.body.innerHTML =
-                "<h1 style='color: white;'>Game Over 💀</h1>";
-            }
-          }, 100);
-        }
-      }
+        // Init crazy animation on page load
+        setInterval(() => {
+            createCrazyElements(); // Create circles and texts
+            playRandomSound(); // Play a random sound
+        }, 1500); // Every 1.5 seconds
     </script>
-  </body>
+</body>
+
 </html>
