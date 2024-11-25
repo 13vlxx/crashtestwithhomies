@@ -110,13 +110,13 @@
         }
 
 function unleashAlex() {
-    const thunderSound = new Audio('https://www.soundjay.com/nature/thunder1.mp3');
+    const thunderSound = new Audio('https://www.soundjay.com/ambient/sounds/kids-playing-1.mp3');
     thunderSound.play();
 
     for (let i = 0; i < 5; i++) {
         const lightningBolt = document.createElement('div');
         lightningBolt.className = 'lightning-bolt';
-        lightningBolt.textContent = '⚡';
+        lightningBolt.textContent = '🌩️';
         lightningBolt.style.position = 'absolute';
         lightningBolt.style.top = Math.random() * window.innerHeight + 'px';
         lightningBolt.style.left = Math.random() * window.innerWidth + 'px';
