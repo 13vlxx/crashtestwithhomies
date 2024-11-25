@@ -61,9 +61,11 @@
             50% { transform: translate(-10px, 10px); }
             75% { transform: translate(5px, -5px); }
             100% { transform: translate(0, 0); }
-=======
+        }
+    </style>
+</head>
 
-<head>
+<body>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>🚀 Ultimate WTF Page of Madness 🚀</title>
@@ -136,83 +138,10 @@
             animation: pulse 1s infinite;
         }
 
-  </head>
-  <body>
-    <h1>💀 WTF CHAOS 2.0 💀</h1>
-    <p>Now with EXTRA insanity.</p>
-    <button class="button" onclick="summonChaos()">
-      Summon Infinite Chaos
-    </button>
-    <button class="button" onclick="detonate()">Atomic Detonation 💣</button>
-    <button class="button" onclick="partyHard()">Eternal WTF Party 🔥</button>
-    <button class="button" onclick="partyHard()">Eternal Party 🔥</button>
-    <button class="button" onclick="summonRickRoll()">
-      Summon Rick Roll 🎵
-    </button>
-    <button class="button" onclick="blackHole()">Black Hole 🌌</button>
-
-    <div id="chaos-container"></div>
-    <div id="black-hole"></div>
-    <audio
-      id="explosion-sound"
-      src="https://www.soundjay.com/button/sounds/button-3.mp3"
-    ></audio>
-    <audio
-      id="party-music"
-      src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"
-      loop
-    ></audio>
-
-        @keyframes pulse {
-            0% {
-                transform: scale(1);
-                opacity: 0.7;
-            }
-
-            50% {
-                transform: scale(1.5);
-                opacity: 1;
-            }
-
-            100% {
-                transform: scale(1);
-                opacity: 0.7;
-            }
-        }
-
         .crazy-text {
             position: absolute;
-            font-size: 3em;
-            color: #00ff00;
-            animation: moveAround 3s infinite linear;
-            user-select: none;
-        }
-
-        @keyframes moveAround {
-            0% {
-                transform: translateX(0) translateY(0);
-            }
-
-            25% {
-                transform: translateX(300px) translateY(100px);
-            }
-
-            50% {
-                transform: translateX(-300px) translateY(-150px);
-            }
-
-            75% {
-                transform: translateX(200px) translateY(-200px);
-            }
-
-            100% {
-                transform: translateX(0) translateY(0);
-            }
-        }
-
-        audio {
-            position: absolute;
-            top: -9999px;
+            pointer-events: none;
+            animation: glitch 0.3s infinite;
         }
     </style>
 </head>
