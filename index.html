@@ -58,6 +58,7 @@
     <p>Click at your own risk...</p>
     <button class="button" onclick="summonChaos()">Summon Chaos</button>
     <button class="button" onclick="detonate()">Detonate 💣</button>
+    <button class="button" onclick="unleashAlex()">Alex tu push stp ?</button>
     <button class="button" onclick="partyHard()">PARTY HARD 🔥</button>
 
     <div id="chaos-container"></div>
@@ -73,7 +74,7 @@
                 chaosBox.style.top = Math.random() * window.innerHeight + 'px';
                 chaosBox.style.left = Math.random() * window.innerWidth + 'px';
                 chaosBox.style.fontSize = Math.random() * 100 + 20 + 'px';
-                chaosBox.style.color = ['lime', 'red', 'yellow', 'magenta', 'cyan'][Math.floor(Math.random() * 5)];
+                chaosBox.style.color = ['teal', 'red', 'yellow', 'magenta', 'cyan', 'brown'][Math.floor(Math.random() * 5)];
                 document.getElementById('chaos-container').appendChild(chaosBox);
             }
         }
@@ -107,6 +108,38 @@
                 document.body.style.animation = 'none';
             }
         }
+
+function unleashAlex() {
+    const thunderSound = new Audio('https://www.soundjay.com/nature/thunder1.mp3');
+    thunderSound.play();
+
+    for (let i = 0; i < 5; i++) {
+        const lightningBolt = document.createElement('div');
+        lightningBolt.className = 'lightning-bolt';
+        lightningBolt.textContent = '⚡';
+        lightningBolt.style.position = 'absolute';
+        lightningBolt.style.top = Math.random() * window.innerHeight + 'px';
+        lightningBolt.style.left = Math.random() * window.innerWidth + 'px';
+        lightningBolt.style.fontSize = Math.random() * 150 + 50 + 'px';
+        lightningBolt.style.opacity = Math.random();
+        document.body.appendChild(lightningBolt);
+
+        setTimeout(() => {
+            lightningBolt.remove();
+        }, 800); 
+    }
+
+    document.body.style.animation = 'shake 0.5s';
+    document.body.style.animationIterationCount = 'infinite';
+
+    setTimeout(() => {
+        document.body.style.animation = 'none';
+    }, 3000);
+
+    setTimeout(() => {
+        alert("🌩️ Alex a push ! Fuyez pauvres fous !");
+    }, 1000);
+}
     </script>
 </body>
 </html>
