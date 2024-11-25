@@ -3,110 +3,117 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>🔥 The Ultimate WTF Experience 🔥</title>
+    <title>💥 CHAOS REALM 💥</title>
     <style>
         body {
-            background: radial-gradient(circle, #1a1a1a, black);
+            background: radial-gradient(circle, black, purple, red, orange, yellow);
             color: white;
-            font-family: 'Courier New', monospace;
-            text-align: center;
+            font-family: 'Comic Sans MS', cursive, sans-serif;
             overflow: hidden;
         }
         h1 {
-            font-size: 4em;
-            color: red;
-            text-shadow: 0 0 20px cyan, 0 0 30px magenta;
-            animation: glitch 1s infinite;
+            font-size: 5em;
+            color: magenta;
+            text-shadow: 0 0 30px cyan, 0 0 40px lime, 0 0 50px red;
+            animation: flicker 0.1s infinite;
+            transform: rotate(-5deg);
         }
-        @keyframes glitch {
-            0%, 100% {
-                text-shadow: 0 0 5px cyan, 0 0 10px magenta;
-            }
-            50% {
-                text-shadow: 2px -2px 5px red, -2px 2px 5px blue;
-            }
+        @keyframes flicker {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.2; }
         }
         .button {
-            padding: 15px 30px;
-            margin: 20px;
-            font-size: 20px;
-            background: linear-gradient(45deg, red, yellow, blue);
+            padding: 20px 40px;
+            font-size: 1.5em;
+            background: linear-gradient(90deg, red, yellow, green, blue, purple);
+            border: none;
+            border-radius: 15px;
             color: white;
-            border: 3px solid white;
-            cursor: pointer;
-            animation: pulse 2s infinite;
             text-transform: uppercase;
+            animation: rainbow 2s infinite, shake 0.5s infinite;
+            cursor: pointer;
         }
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.1); }
+        @keyframes rainbow {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
         }
-        .chaos-box {
+        @keyframes shake {
+            0%, 100% { transform: translate(0, 0); }
+            25% { transform: translate(5px, -5px); }
+            75% { transform: translate(-5px, 5px); }
+        }
+        .chaos-item {
             position: absolute;
-            font-size: 2em;
-            color: lime;
-            animation: spin 4s infinite linear;
+            animation: fly 3s infinite ease-in-out;
         }
-        @keyframes spin {
-            from { transform: rotate(0); }
-            to { transform: rotate(360deg); }
+        @keyframes fly {
+            0% { transform: translate(-50px, -50px) rotate(0deg); }
+            50% { transform: translate(100vw, 100vh) rotate(360deg); }
+            100% { transform: translate(-50px, -50px) rotate(720deg); }
+        }
+        .glitch {
+            animation: glitch-effect 0.3s infinite;
+        }
+        @keyframes glitch-effect {
+            0% { transform: translate(0, 0); }
+            25% { transform: translate(10px, -10px); }
+            50% { transform: translate(-10px, 10px); }
+            75% { transform: translate(5px, -5px); }
+            100% { transform: translate(0, 0); }
         }
     </style>
 </head>
 <body>
-    <h1>💀 Welcome to Hell 💀</h1>
-    <p>Click at your own risk...</p>
-    <button class="button" onclick="summonChaos()">Summon Chaos</button>
-    <button class="button" onclick="detonate()">Detonate 💣</button>
-    <button class="button" onclick="partyHard()">PARTY HARD 🔥</button>
+<h1 class="glitch">🎉 CHAOS HAS ARRIVED 🎉</h1>
+<p>Brace yourself... or don't. 🤪</p>
+<button class="button" onclick="unleashMadness()">UNLEASH MADNESS</button>
+<button class="button" onclick="explode()">🔥 EXPLODE EVERYTHING 🔥</button>
+<button class="button" onclick="danceParty()">🕺 LET'S DANCE 💃</button>
+<div id="chaos-container"></div>
 
-    <div id="chaos-container"></div>
-    <audio id="explosion-sound" src="https://www.soundjay.com/button/sounds/button-3.mp3"></audio>
-    <audio id="party-music" src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" loop></audio>
+<audio id="madness-sound" src="https://www.soundjay.com/button/sounds/button-6.mp3"></audio>
+<audio id="explosion-sound" src="https://www.soundjay.com/button/sounds/button-5.mp3"></audio>
+<audio id="party-music" src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3" loop></audio>
 
-    <script>
-        function summonChaos() {
-            for (let i = 0; i < 10; i++) {
-                const chaosBox = document.createElement('div');
-                chaosBox.className = 'chaos-box';
-                chaosBox.textContent = '🔥';
-                chaosBox.style.top = Math.random() * window.innerHeight + 'px';
-                chaosBox.style.left = Math.random() * window.innerWidth + 'px';
-                chaosBox.style.fontSize = Math.random() * 100 + 20 + 'px';
-                chaosBox.style.color = ['lime', 'red', 'yellow', 'magenta', 'cyan'][Math.floor(Math.random() * 5)];
-                document.getElementById('chaos-container').appendChild(chaosBox);
-            }
+<script>
+    function randomEmoji() {
+        const emojis = ['🔥', '💀', '🤡', '🦄', '⚡', '🌈', '😱', '👾', '🍕', '🚀'];
+        return emojis[Math.floor(Math.random() * emojis.length)];
+    }
+
+    function unleashMadness() {
+        for (let i = 0; i < 50; i++) {
+            const chaosItem = document.createElement('div');
+            chaosItem.className = 'chaos-item';
+            chaosItem.textContent = randomEmoji();
+            chaosItem.style.top = Math.random() * 100 + 'vh';
+            chaosItem.style.left = Math.random() * 100 + 'vw';
+            chaosItem.style.fontSize = Math.random() * 50 + 10 + 'px';
+            chaosItem.style.color = `hsl(${Math.random() * 360}, 100%, 50%)`;
+            document.body.appendChild(chaosItem);
         }
+        document.getElementById('madness-sound').play();
+    }
 
-        function detonate() {
-            const explosionSound = document.getElementById('explosion-sound');
-            explosionSound.play();
+    function explode() {
+        const sound = document.getElementById('explosion-sound');
+        sound.play();
+        document.body.innerHTML = "<h1 style='color: red; font-size: 10em;'>💥 BOOM 💥</h1>";
+        setTimeout(() => location.reload(), 3000);
+    }
 
-            document.body.style.background = 'red';
-            document.body.style.transition = 'background 0.3s';
-
-            setTimeout(() => {
-                document.body.style.background = 'black';
-            }, 500);
-            
-            alert("💥 BOOM 💥 Everything is ruined!");
+    function danceParty() {
+        const music = document.getElementById('party-music');
+        if (music.paused) {
+            music.play();
+            setInterval(unleashMadness, 500);
+            document.body.style.animation = 'rainbow 1s infinite';
+        } else {
+            music.pause();
+            alert("💔 No more dancing...");
         }
-
-        function partyHard() {
-            const music = document.getElementById('party-music');
-            if (music.paused) {
-                music.play();
-                document.body.style.animation = 'glow 1s infinite';
-                setInterval(() => {
-                    summonChaos();
-                    document.body.style.backgroundColor = '#' + Math.floor(Math.random()*16777215).toString(16);
-                }, 300);
-            } else {
-                music.pause();
-                alert("🚫 Party is over. Chill.");
-                document.body.style.animation = 'none';
-            }
-        }
-    </script>
+    }
+</script>
 </body>
 </html>
