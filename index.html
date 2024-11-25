@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>🔥 The Ultimate WTF Experience x100 🔥</title>
+    <title>🔥 The Ultimate WTF Experience x1000 🔥</title>
     <style>
       body {
         background: radial-gradient(circle, #1a1a1a, black);
@@ -119,7 +119,7 @@
     <p>Click the buttons and regret immediately.</p>
     <button class="button" onclick="summonChaos()">Summon Infinite Chaos</button>
     <button class="button" onclick="detonate()">Atomic Detonation 💣</button>
-    <button class="button" onclick="partyHard()">Eternal Party 🔥</button>
+    <button class="button" onclick="partyHard()">Eternal WTF Party 🔥</button>
 
     <div id="chaos-container"></div>
     <audio id="explosion-sound" src="https://www.soundjay.com/button/sounds/button-3.mp3"></audio>
@@ -131,7 +131,7 @@
 
     <script>
       function summonChaos() {
-        for (let i = 0; i < 20; i++) {
+        for (let i = 0; i < 100; i++) {
           const chaosBox = document.createElement("div");
           chaosBox.className = "chaos-box";
           chaosBox.textContent = ["🔥", "💀", "👾", "⚡", "💣"][Math.floor(Math.random() * 5)];
@@ -174,12 +174,19 @@
         const music = document.getElementById("party-music");
         if (music.paused) {
           music.play();
+          music.playbackRate = 3; // Vitesse WTF
+          music.addEventListener("timeupdate", () => {
+            // Ajoute des perturbations aléatoires
+            if (Math.random() < 0.1) {
+              music.playbackRate = Math.random() * 2 + 2; // Entre 2x et 4x
+            }
+          });
           document.body.style.animation = "hueRotate 5s infinite";
           setInterval(() => {
             summonChaos();
             document.body.style.backgroundColor =
               "#" + Math.floor(Math.random() * 16777215).toString(16);
-          }, 200);
+          }, 0);
         } else {
           music.pause();
           alert("😵 Party Over. Reality Restored.");
