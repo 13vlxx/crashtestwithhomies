@@ -114,35 +114,42 @@
         100% {
           transform: scale(0);
         }
-    }
+      }
 
-        #black-hole {
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            width: 50px;
-            height: 50px;
-            background: black;
-            border-radius: 50%;
-            transform: translate(-50%, -50%);
-            box-shadow: 0 0 50px 20px black;
-            display: none;
-        }
+      #black-hole {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        width: 50px;
+        height: 50px;
+        background: black;
+        border-radius: 50%;
+        transform: translate(-50%, -50%);
+        box-shadow: 0 0 50px 20px black;
+        display: none;
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <h1>💀 WTF CHAOS 2.0 💀</h1>
     <p>Now with EXTRA insanity.</p>
- <button class="button" onclick="summonChaos()">Summon Infinite Chaos</button>
+    <button class="button" onclick="summonChaos()">
+      Summon Infinite Chaos
+    </button>
     <button class="button" onclick="detonate()">Atomic Detonation 💣</button>
     <button class="button" onclick="partyHard()">Eternal WTF Party 🔥</button>
     <button class="button" onclick="partyHard()">Eternal Party 🔥</button>
-    <button class="button" onclick="summonRickRoll()">Summon Rick Roll 🎵</button>
+    <button class="button" onclick="summonRickRoll()">
+      Summon Rick Roll 🎵
+    </button>
     <button class="button" onclick="blackHole()">Black Hole 🌌</button>
 
     <div id="chaos-container"></div>
     <div id="black-hole"></div>
-    <audio id="explosion-sound" src="https://www.soundjay.com/button/sounds/button-3.mp3"></audio>
+    <audio
+      id="explosion-sound"
+      src="https://www.soundjay.com/button/sounds/button-3.mp3"
+    ></audio>
     <audio
       id="party-music"
       src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"
@@ -151,103 +158,104 @@
 
     <script>
       function summonChaos() {
-
         for (let i = 0; i < 100; i++) {
-          const chaosBox = document.createElement("div");
-          chaosBox.className = "chaos-box";
-          chaosBox.textContent = ["🔥", "💀", "👾", "⚡", "💣"][Math.floor(Math.random() * 5)];
-          chaosBox.style.top = Math.random() * window.innerHeight + "px";
-          chaosBox.style.left = Math.random() * window.innerWidth + "px";
-          chaosBox.style.fontSize = Math.random() * 100 + 20 + "px";
-          chaosBox.style.color = ["lime", "red", "yellow", "magenta", "cyan"][
+          const chaosBox = document.createElement('div');
+          chaosBox.className = 'chaos-box';
+          chaosBox.textContent = ['🔥', '💀', '👾', '⚡', '💣'][
             Math.floor(Math.random() * 5)
           ];
-          document.getElementById("chaos-container").appendChild(chaosBox);
+          chaosBox.style.top = Math.random() * window.innerHeight + 'px';
+          chaosBox.style.left = Math.random() * window.innerWidth + 'px';
+          chaosBox.style.fontSize = Math.random() * 100 + 20 + 'px';
+          chaosBox.style.color = ['lime', 'red', 'yellow', 'magenta', 'cyan'][
+            Math.floor(Math.random() * 5)
+          ];
+          document.getElementById('chaos-container').appendChild(chaosBox);
 
-          chaosBox.addEventListener("animationend", () => {
+          chaosBox.addEventListener('animationend', () => {
             chaosBox.remove();
           });
         }
       }
 
       function detonate() {
-        const explosionSound = document.getElementById("explosion-sound");
+        const explosionSound = document.getElementById('explosion-sound');
         explosionSound.play();
 
-        const chaosBoxes = document.querySelectorAll(".chaos-box");
+        const chaosBoxes = document.querySelectorAll('.chaos-box');
         chaosBoxes.forEach((box) => {
-          box.style.animation = "explode 1s forwards";
+          box.style.animation = 'explode 1s forwards';
         });
 
         setTimeout(() => {
-          document.body.style.background = "red";
-          document.body.style.transition = "background 0.5s";
+          document.body.style.background = 'red';
+          document.body.style.transition = 'background 0.5s';
         }, 300);
 
         setTimeout(() => {
-          document.body.style.background = "black";
+          document.body.style.background = 'black';
         }, 800);
 
-        alert("💥 BOOM 💥 CHAOS LEVEL: MAXIMUM!");
+        alert('💥 BOOM 💥 CHAOS LEVEL: MAXIMUM!');
       }
 
       function partyHard() {
-        const music = document.getElementById("party-music");
+        const music = document.getElementById('party-music');
         if (music.paused) {
           music.play();
 
           music.playbackRate = 3; // Vitesse WTF
-          music.addEventListener("timeupdate", () => {
+          music.addEventListener('timeupdate', () => {
             // Ajoute des perturbations aléatoires
             if (Math.random() < 0.1) {
               music.playbackRate = Math.random() * 2 + 2; // Entre 2x et 4x
             }
           });
-          document.body.style.animation = "hueRotate 5s infinite";
+          document.body.style.animation = 'hueRotate 5s infinite';
           setInterval(() => {
             summonChaos();
             document.body.style.backgroundColor =
-              "#" + Math.floor(Math.random() * 16777215).toString(16);
+              '#' + Math.floor(Math.random() * 16777215).toString(16);
           }, 0);
         } else {
           music.pause();
-          alert("😵 Party Over. Reality Restored.");
-          document.body.style.animation = "none";
+          alert('😵 Party Over. Reality Restored.');
+          document.body.style.animation = 'none';
         }
 
-
         function summonRickRoll() {
-            for (let i = 0; i < 5; i++) {
-                const rick = document.createElement('img');
-                rick.src = "https://alexsoyes.com/wp-content/uploads/2020/06/programmation-html-wordpress-730x912.jpg";
-                rick.style.position = "absolute";
-                rick.style.top = Math.random() * window.innerHeight + 'px';
-                rick.style.left = Math.random() * window.innerWidth + 'px';
-                rick.style.width = Math.random() * 200 + 50 + "px";
-                document.body.appendChild(rick);
-            }
+          for (let i = 0; i < 5; i++) {
+            const rick = document.createElement('img');
+            rick.src =
+              'https://alexsoyes.com/wp-content/uploads/2020/06/programmation-html-wordpress-730x912.jpg';
+            rick.style.position = 'absolute';
+            rick.style.top = Math.random() * window.innerHeight + 'px';
+            rick.style.left = Math.random() * window.innerWidth + 'px';
+            rick.style.width = Math.random() * 200 + 50 + 'px';
+            document.body.appendChild(rick);
+          }
         }
 
         function blackHole() {
-            const blackHole = document.getElementById('black-hole');
-            blackHole.style.display = 'block';
-            let size = 50;
+          const blackHole = document.getElementById('black-hole');
+          blackHole.style.display = 'block';
+          let size = 50;
 
-            const interval = setInterval(() => {
-                size += 20;
-                blackHole.style.width = size + 'px';
-                blackHole.style.height = size + 'px';
-                blackHole.style.boxShadow = `0 0 ${size}px ${size / 2}px black`;
+          const interval = setInterval(() => {
+            size += 20;
+            blackHole.style.width = size + 'px';
+            blackHole.style.height = size + 'px';
+            blackHole.style.boxShadow = `0 0 ${size}px ${size / 2}px black`;
 
-                if (size > window.innerWidth) {
-                    clearInterval(interval);
-                    alert("🌌 The world has been swallowed by the black hole!");
-                    document.body.innerHTML = "<h1 style='color: white;'>Game Over 💀</h1>";
-                }
-            }, 100);
-
-    }
-
+            if (size > window.innerWidth) {
+              clearInterval(interval);
+              alert('🌌 The world has been swallowed by the black hole!');
+              document.body.innerHTML =
+                "<h1 style='color: white;'>Game Over 💀</h1>";
+            }
+          }, 100);
+        }
+      }
     </script>
   </body>
 </html>
