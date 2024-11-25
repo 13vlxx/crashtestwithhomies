@@ -64,88 +64,6 @@
         }
     </style>
 </head>
-
-<body>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>🚀 Ultimate WTF Page of Madness 🚀</title>
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            background: black;
-            color: white;
-            font-family: "Comic Sans MS", sans-serif;
-            overflow: hidden;
-            text-align: center;
-            position: relative;
-        }
-
-        h1 {
-            font-size: 5em;
-            text-transform: uppercase;
-            color: #ff00ff;
-            text-shadow: 0 0 10px red, 0 0 20px orange, 0 0 30px yellow, 0 0 40px green;
-            animation: glitch 1s infinite linear;
-            user-select: none;
-        }
-
-        @keyframes glitch {
-            0% {
-                text-shadow: 0 0 10px red, 0 0 20px orange, 0 0 30px yellow, 0 0 40px green;
-                transform: translate(0);
-            }
-
-            50% {
-                text-shadow: 0 0 5px blue, 0 0 15px purple, 0 0 25px white;
-                transform: translate(5px, 5px);
-            }
-
-            100% {
-                text-shadow: 0 0 10px cyan, 0 0 20px pink, 0 0 30px magenta;
-                transform: translate(-5px, -5px);
-            }
-        }
-
-        .random-shapes {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            z-index: 1;
-            pointer-events: none;
-            animation: spin 2s infinite linear;
-        }
-
-        @keyframes spin {
-            0% {
-                transform: rotate(0deg) translate(-50%, -50%);
-            }
-
-            100% {
-                transform: rotate(360deg) translate(-50%, -50%);
-            }
-        }
-
-        .crazy-circle {
-            width: 100px;
-            height: 100px;
-            border-radius: 50%;
-            background-color: rgba(255, 0, 255, 0.5);
-            position: absolute;
-            pointer-events: none;
-            box-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
-            animation: pulse 1s infinite;
-        }
-
-        .crazy-text {
-            position: absolute;
-            pointer-events: none;
-            animation: glitch 0.3s infinite;
-        }
-    </style>
-</head>
-
 <body>
     <h1>💥 WTF Chaos 💥</h1>
     <div id="crazy-elements"></div>
@@ -153,16 +71,15 @@
     <audio id="explosion-sound" src="https://www.soundjay.com/button/sounds/button-3.mp3" preload="auto"></audio>
     <audio id="party-sound" src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" preload="auto" loop></audio>
     <audio id="weird-sound" src="https://www.soundjay.com/button/sounds/button-6.mp3" preload="auto"></audio>
-
+    <p>Alexis test</p>
     <script>
-        // Audio insane random sounds
+       
         function playRandomSound() {
             const sounds = ['explosion-sound', 'party-sound', 'weird-sound'];
             const sound = document.getElementById(sounds[Math.floor(Math.random() * sounds.length)]);
             sound.play();
         }
-
-        // Create insane circle and text
+       
         function createCrazyElements() {
             const crazyCircle = document.createElement('div');
             crazyCircle.className = 'crazy-circle';
@@ -183,43 +100,34 @@
             }, 3000);
         }
 
-        // Random colors for the page background
         function changeBackgroundColor() {
             document.body.style.backgroundColor = `rgb(${Math.random() * 255}, ${Math.random() * 255}, ${Math.random() * 255})`;
         }
-
-        // Trigger chaos on mouse movement
+       
         document.body.addEventListener('mousemove', function (event) {
             if (Math.random() < 0.2) {
-                createCrazyElements(); // Create circles and texts
-                playRandomSound(); // Play a random sound
-                changeBackgroundColor(); // Change background color randomly
+                createCrazyElements();
+                playRandomSound();
+                changeBackgroundColor();
             }
         });
-
-        // Trigger chaos when clicking
         document.body.addEventListener('click', function () {
-            createCrazyElements(); // Create circles and texts
-            playRandomSound(); // Play a random sound
-            changeBackgroundColor(); // Change background color randomly
+            createCrazyElements();
+            playRandomSound();
+            changeBackgroundColor();
         });
-
-        // Trigger random madness when mouse enters or leaves the page
         document.body.addEventListener('mouseenter', function () {
-            createCrazyElements(); // Create circles and texts
+            createCrazyElements();
         });
-
         document.body.addEventListener('mouseleave', function () {
-            createCrazyElements(); // Create circles and texts
-            playRandomSound(); // Play a random sound
+            createCrazyElements();
+            playRandomSound();
         });
-
-        // Init crazy animation on page load
+       
         setInterval(() => {
-            createCrazyElements(); // Create circles and texts
-            playRandomSound(); // Play a random sound
-        }, 1500); // Every 1.5 seconds
+            createCrazyElements();
+            playRandomSound();
+        }, 1500);
     </script>
 </body>
-
 </html>
