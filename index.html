@@ -1,112 +1,191 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>🔥 The Ultimate WTF Experience 🔥</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>🔥 The Ultimate WTF Experience x100 🔥</title>
     <style>
-        body {
-            background: radial-gradient(circle, #1a1a1a, black);
-            color: white;
-            font-family: 'Courier New', monospace;
-            text-align: center;
-            overflow: hidden;
+      body {
+        background: radial-gradient(circle, #1a1a1a, black);
+        color: white;
+        font-family: "Comic Sans MS", cursive, sans-serif;
+        text-align: center;
+        overflow: hidden;
+        animation: hueRotate 10s infinite linear;
+      }
+
+      @keyframes hueRotate {
+        0% {
+          filter: hue-rotate(0deg);
         }
-        h1 {
-            font-size: 4em;
-            color: red;
-            text-shadow: 0 0 20px cyan, 0 0 30px magenta;
-            animation: glitch 1s infinite;
+        100% {
+          filter: hue-rotate(360deg);
         }
-        @keyframes glitch {
-            0%, 100% {
-                text-shadow: 0 0 5px cyan, 0 0 10px magenta;
-            }
-            50% {
-                text-shadow: 2px -2px 5px red, -2px 2px 5px blue;
-            }
+      }
+
+      h1 {
+        font-size: 6em;
+        color: gold;
+        text-shadow: 0 0 20px cyan, 0 0 40px magenta, 0 0 60px red;
+        animation: glitch 0.5s infinite, textZoom 5s infinite alternate;
+      }
+
+      @keyframes glitch {
+        0%,
+        100% {
+          transform: translate(0, 0);
         }
-        .button {
-            padding: 15px 30px;
-            margin: 20px;
-            font-size: 20px;
-            background: linear-gradient(45deg, red, yellow, blue);
-            color: white;
-            border: 3px solid white;
-            cursor: pointer;
-            animation: pulse 2s infinite;
-            text-transform: uppercase;
+        25% {
+          transform: translate(2px, -2px);
         }
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.1); }
+        50% {
+          transform: translate(-2px, 2px);
         }
-        .chaos-box {
-            position: absolute;
-            font-size: 2em;
-            color: lime;
-            animation: spin 4s infinite linear;
+        75% {
+          transform: translate(1px, -1px);
         }
-        @keyframes spin {
-            from { transform: rotate(0); }
-            to { transform: rotate(360deg); }
+      }
+
+      @keyframes textZoom {
+        0% {
+          transform: scale(1);
         }
+        100% {
+          transform: scale(1.5);
+        }
+      }
+
+      .button {
+        padding: 20px 40px;
+        margin: 20px;
+        font-size: 20px;
+        background: linear-gradient(90deg, red, yellow, green, blue, purple);
+        color: black;
+        border: 5px dashed white;
+        border-radius: 50%;
+        cursor: pointer;
+        animation: spinButton 3s infinite linear;
+        text-transform: uppercase;
+      }
+
+      @keyframes spinButton {
+        from {
+          transform: rotate(0deg);
+        }
+        to {
+          transform: rotate(360deg);
+        }
+      }
+
+      .chaos-box {
+        position: absolute;
+        font-size: 2em;
+        animation: flyAround 4s infinite;
+      }
+
+      @keyframes flyAround {
+        0% {
+          transform: translate(0, 0) rotate(0);
+        }
+        25% {
+          transform: translate(50px, -100px) rotate(90deg);
+        }
+        50% {
+          transform: translate(-200px, 200px) rotate(180deg);
+        }
+        75% {
+          transform: translate(100px, -50px) rotate(270deg);
+        }
+        100% {
+          transform: translate(0, 0) rotate(360deg);
+        }
+      }
+
+      @keyframes explode {
+        0% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(3);
+        }
+        100% {
+          transform: scale(0);
+        }
+      }
     </style>
-</head>
-<body>
-    <h1>💀 Welcome to Hell 💀</h1>
-    <p>Click at your own risk...</p>
-    <button class="button" onclick="summonChaos()">Summon Chaos</button>
-    <button class="button" onclick="detonate()">Detonate 💣</button>
-    <button class="button" onclick="partyHard()">PARTY HARD 🔥</button>
+  </head>
+  <body>
+    <h1>💀 Enter the WTF Zone 💀</h1>
+    <p>Click the buttons and regret immediately.</p>
+    <button class="button" onclick="summonChaos()">Summon Infinite Chaos</button>
+    <button class="button" onclick="detonate()">Atomic Detonation 💣</button>
+    <button class="button" onclick="partyHard()">Eternal Party 🔥</button>
 
     <div id="chaos-container"></div>
     <audio id="explosion-sound" src="https://www.soundjay.com/button/sounds/button-3.mp3"></audio>
-    <audio id="party-music" src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" loop></audio>
+    <audio
+      id="party-music"
+      src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"
+      loop
+    ></audio>
 
     <script>
-        function summonChaos() {
-            for (let i = 0; i < 10; i++) {
-                const chaosBox = document.createElement('div');
-                chaosBox.className = 'chaos-box';
-                chaosBox.textContent = '🔥';
-                chaosBox.style.top = Math.random() * window.innerHeight + 'px';
-                chaosBox.style.left = Math.random() * window.innerWidth + 'px';
-                chaosBox.style.fontSize = Math.random() * 100 + 20 + 'px';
-                chaosBox.style.color = ['lime', 'red', 'yellow', 'magenta', 'cyan'][Math.floor(Math.random() * 5)];
-                document.getElementById('chaos-container').appendChild(chaosBox);
-            }
+      function summonChaos() {
+        for (let i = 0; i < 20; i++) {
+          const chaosBox = document.createElement("div");
+          chaosBox.className = "chaos-box";
+          chaosBox.textContent = ["🔥", "💀", "👾", "⚡", "💣"][Math.floor(Math.random() * 5)];
+          chaosBox.style.top = Math.random() * window.innerHeight + "px";
+          chaosBox.style.left = Math.random() * window.innerWidth + "px";
+          chaosBox.style.fontSize = Math.random() * 100 + 20 + "px";
+          chaosBox.style.color = ["lime", "red", "yellow", "magenta", "cyan"][
+            Math.floor(Math.random() * 5)
+          ];
+          document.getElementById("chaos-container").appendChild(chaosBox);
+
+          chaosBox.addEventListener("animationend", () => {
+            chaosBox.remove();
+          });
         }
+      }
 
-        function detonate() {
-            const explosionSound = document.getElementById('explosion-sound');
-            explosionSound.play();
+      function detonate() {
+        const explosionSound = document.getElementById("explosion-sound");
+        explosionSound.play();
 
-            document.body.style.background = 'red';
-            document.body.style.transition = 'background 0.3s';
+        const chaosBoxes = document.querySelectorAll(".chaos-box");
+        chaosBoxes.forEach((box) => {
+          box.style.animation = "explode 1s forwards";
+        });
 
-            setTimeout(() => {
-                document.body.style.background = 'black';
-            }, 500);
-            
-            alert("💥 BOOM 💥 Everything is ruined!");
+        setTimeout(() => {
+          document.body.style.background = "red";
+          document.body.style.transition = "background 0.5s";
+        }, 300);
+
+        setTimeout(() => {
+          document.body.style.background = "black";
+        }, 800);
+
+        alert("💥 BOOM 💥 CHAOS LEVEL: MAXIMUM!");
+      }
+
+      function partyHard() {
+        const music = document.getElementById("party-music");
+        if (music.paused) {
+          music.play();
+          document.body.style.animation = "hueRotate 5s infinite";
+          setInterval(() => {
+            summonChaos();
+            document.body.style.backgroundColor =
+              "#" + Math.floor(Math.random() * 16777215).toString(16);
+          }, 200);
+        } else {
+          music.pause();
+          alert("😵 Party Over. Reality Restored.");
+          document.body.style.animation = "none";
         }
-
-        function partyHard() {
-            const music = document.getElementById('party-music');
-            if (music.paused) {
-                music.play();
-                document.body.style.animation = 'glow 1s infinite';
-                setInterval(() => {
-                    summonChaos();
-                    document.body.style.backgroundColor = '#' + Math.floor(Math.random()*16777215).toString(16);
-                }, 300);
-            } else {
-                music.pause();
-                alert("🚫 Party is over. Chill.");
-                document.body.style.animation = 'none';
-            }
-        }
+      }
     </script>
-</body>
+  </body>
 </html>
