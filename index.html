@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>🔥 The Ultimate WTF Experience 🔥</title>
+    <title>🔥 Ultimate WTF Experience 2.0 🔥</title>
     <style>
         body {
             background: radial-gradient(circle, #1a1a1a, black);
@@ -51,16 +51,31 @@
             from { transform: rotate(0); }
             to { transform: rotate(360deg); }
         }
+        #black-hole {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            width: 50px;
+            height: 50px;
+            background: black;
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            box-shadow: 0 0 50px 20px black;
+            display: none;
+        }
     </style>
 </head>
 <body>
-    <h1>💀 Welcome to Hell 💀</h1>
-    <p>Click at your own risk...</p>
+    <h1>💀 WTF CHAOS 2.0 💀</h1>
+    <p>Now with EXTRA insanity.</p>
     <button class="button" onclick="summonChaos()">Summon Chaos</button>
     <button class="button" onclick="detonate()">Detonate 💣</button>
     <button class="button" onclick="partyHard()">PARTY HARD 🔥</button>
+    <button class="button" onclick="summonRickRoll()">Summon Rick Roll 🎵</button>
+    <button class="button" onclick="blackHole()">Black Hole 🌌</button>
 
     <div id="chaos-container"></div>
+    <div id="black-hole"></div>
     <audio id="explosion-sound" src="https://www.soundjay.com/button/sounds/button-3.mp3"></audio>
     <audio id="party-music" src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" loop></audio>
 
@@ -106,6 +121,37 @@
                 alert("🚫 Party is over. Chill.");
                 document.body.style.animation = 'none';
             }
+        }
+
+        function summonRickRoll() {
+            for (let i = 0; i < 5; i++) {
+                const rick = document.createElement('img');
+                rick.src = "https://upload.wikimedia.org/wikipedia/en/7/70/Rick_Astley_-_Never_Gonna_Give_You_Up.png";
+                rick.style.position = "absolute";
+                rick.style.top = Math.random() * window.innerHeight + 'px';
+                rick.style.left = Math.random() * window.innerWidth + 'px';
+                rick.style.width = Math.random() * 200 + 50 + "px";
+                document.body.appendChild(rick);
+            }
+        }
+
+        function blackHole() {
+            const blackHole = document.getElementById('black-hole');
+            blackHole.style.display = 'block';
+            let size = 50;
+
+            const interval = setInterval(() => {
+                size += 20;
+                blackHole.style.width = size + 'px';
+                blackHole.style.height = size + 'px';
+                blackHole.style.boxShadow = `0 0 ${size}px ${size / 2}px black`;
+
+                if (size > window.innerWidth) {
+                    clearInterval(interval);
+                    alert("🌌 The world has been swallowed by the black hole!");
+                    document.body.innerHTML = "<h1 style='color: white;'>Game Over 💀</h1>";
+                }
+            }, 100);
         }
     </script>
 </body>
