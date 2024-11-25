@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -8,7 +9,9 @@
       body {
         background: radial-gradient(circle, #1a1a1a, black);
         color: white;
+
         font-family: "Comic Sans MS", cursive, sans-serif;
+
         text-align: center;
         overflow: hidden;
         animation: hueRotate 10s infinite linear;
@@ -111,6 +114,7 @@
         100% {
           transform: scale(0);
         }
+    }
 
         #black-hole {
             position: fixed;
@@ -147,6 +151,7 @@
 
     <script>
       function summonChaos() {
+
         for (let i = 0; i < 100; i++) {
           const chaosBox = document.createElement("div");
           chaosBox.className = "chaos-box";
@@ -190,6 +195,7 @@
         const music = document.getElementById("party-music");
         if (music.paused) {
           music.play();
+
           music.playbackRate = 3; // Vitesse WTF
           music.addEventListener("timeupdate", () => {
             // Ajoute des perturbations aléatoires
@@ -239,7 +245,8 @@
                     document.body.innerHTML = "<h1 style='color: white;'>Game Over 💀</h1>";
                 }
             }, 100);
-        }
+
+    }
 
     </script>
   </body>
